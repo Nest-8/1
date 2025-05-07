@@ -96,7 +96,7 @@ nav .navigation ul li a:hover
 
 #home
 {
-	background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5,4,46,0.7)), url("img/back.jpg");
+	background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5,4,46,0.7)), url("https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 	width: 100%;
 	height: 100vh;
 	background-size: cover;
@@ -221,7 +221,7 @@ nav .navigation ul li a:hover
 #registration
 {
 	padding: 6vw 8vw 6vw 8vw;
-	background-image: linear-gradient(rgba(99,112,168,0.5), rgba(81,91,233,0.5)),url("img/projects.webp");
+	background-image: linear-gradient(rgba(209, 217, 255, 0.5), rgba(155, 155, 155, 0.5)),url("img/projects.webp");
 	width: 100%;
 	height: 100%;
 	background-size: cover;
@@ -270,7 +270,7 @@ nav .navigation ul li a:hover
 {
 	margin: 15px 0;
 	padding: 15px 10px;
-	border: 1px solid rgb(84, 40, 241);
+	border: 1px solid rgb(52, 51, 56);
 	outline: none;
 }
 
@@ -295,7 +295,7 @@ nav .navigation ul li a:hover
 	font-weight: 600;
 	border-radius: 5px;
 	color: #fff;
-	background: #5f38fd;
+	background: #f4f2fc;
 	transition: 0.3s ease;
 }
 
@@ -477,3 +477,90 @@ nav .navigation ul li a:hover
 		margin-top: 20px;
 	}
 }
+
+/* Registration Section */
+#registration {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+	gap: 2rem;
+	padding: 4rem 2rem;
+	background: linear-gradient(135deg, #6b829e 0%, #6d6d6d 100%);
+	color: #fff;
+  }
+  
+  #registration .reminder,
+  #registration .form {
+	flex: 1 1 300px;
+	background: rgba(167, 147, 147, 0.1);
+	border-radius: 1rem;
+	box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+	padding: 2rem;
+  }
+  
+  #registration .reminder h1 {
+	font-size: 2rem;
+	margin: 0.5rem 0 1.5rem;
+  }
+  
+  #registration .time {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+  }
+  
+  #registration .time .date {
+	flex: 1;
+	background: rgba(255,255,255,0.2);
+	padding: 1rem;
+	border-radius: 0.75rem;
+	text-align: center;
+  }
+  
+  #registration .time .date span {
+	display: block;
+	font-size: 2rem;
+	font-weight: bold;
+  }
+  
+  #registration .form h3 {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+  }
+  
+  #registration .form input[type="text"],
+  #registration .form input[type="email"],
+  #registration .form input[type="tel"] {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	margin-bottom: 1rem;
+	border: none;
+	border-radius: 0.5rem;
+	font-size: 1rem;
+  }
+  
+  #registration .form input::placeholder {
+	color: #aaa;
+  }
+  
+  #registration .form .btn {
+	text-align: center;
+  }
+  
+  #registration .form button {
+	background: #ffdd57;
+	color: #333;
+	padding: 0.75rem 2rem;
+	font-size: 1rem;
+	font-weight: bold;
+	border: none;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  #registration .form button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  }
