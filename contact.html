@@ -13,8 +13,6 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="about.css" />
-
     <link rel="stylesheet" href="contact.css" />
 
     <!-- JQuery CDN link -->
@@ -89,30 +87,30 @@
           </div>
         </div>
       </div>
-
       <div class="form">
         <h4>Холбоо барих</h4>
-        <div class="form-row">
-          <input type="text" placeholder="Нэр" />
-          <input type="email" placeholder="емайл" />
-        </div>
-        <div class="form-col">
-          <input type="text" placeholder="Мэдээлэл" />
-        </div>
-        <div class="form-col">
-          <textarea
-            name=""
-            id=""
-            cols="30"
-            rows="8"
-            placeholder="Таньд юугаар туслах вэ?"
-          ></textarea>
-        </div>
-
-        <div class="form-col">
-          <button>Илгээх</button>
-        </div>
-      </div>
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="cbf8af70-9740-4e7d-ab2f-2edc0c26de00" />
+          <input type="hidden" name="redirect" value="thank-you.html" />
+      
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Нэр" required />
+            <input type="email" name="email" placeholder="И-мэйл" required />
+          </div>
+      
+          <div class="form-col">
+            <input type="tel" name="phone" placeholder="Утасны дугаар" required />
+          </div>
+      
+          <div class="form-col">
+            <textarea name="message" cols="30" rows="8" placeholder="Таньд юугаар туслах вэ?" required></textarea>
+          </div>
+      
+          <div class="form-col">
+            <button type="submit">Илгээх</button>
+          </div>
+        </form>
+      </div>      
     </section>
     <section id="map">
       <iframe
@@ -123,16 +121,10 @@
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
     </section>
-
-    
-
     <script>
-      // Show menu links on burger click
       $("#menu-btn").click(function () {
         $("nav .navigation ul").addClass("active");
       });
-
-      // Hide navbar on click function
       $("#menu-close").click(function () {
         $("nav .navigation ul").removeClass("active");
       });
