@@ -4,19 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Бидний үзсэн хичээл</title>
-
-    <!-- Font Awesome CDN холбоос -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
-
-    <!-- Гадны CSS -->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="about.css" />
     <link rel="stylesheet" href="course-inner.css" />
-
-    <!-- JQuery CDN холбоос -->
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -24,7 +18,6 @@
     ></script>
   </head>
   <body>
-    <!-- Навигацийн хэсэг -->
     <nav>
       <img src="img/favicon.ico" class="logo" alt="" />
 
@@ -32,8 +25,8 @@
         <ul>
           <i id="menu-close" class="fas fa-times"></i>
 				<li><a href="index.html" >Нүүр Хуудас</a></li>
-				<li><a href="about.html"  > Бүтээлийн танилцуулга</a></li>
-				<li><a href="course-inner.html" class="active">Бидний үзсэн хичээл</a></li>
+				<li><a href="buteel.html"  > Бүтээлийн танилцуулга</a></li>
+				<li><a href="course-inner.html" class="active">Хичээлийн тухай</a></li>
 				<li><a href="contact.html">Холбоо барих</a></li>
         </ul>
 
@@ -41,92 +34,95 @@
       </div>
     </nav>
    
-
     <section id="about-home">
       <h2>Хичээлээ үзээд чадвараа сайжруул</h2>
     </section>
-   
+
     <section id="course-inner">
       <div class="overview">
-        <img class="course-img" src="img/c1.jpg" alt="" />
-
+        <img class="course-img" src="img/c1.jpg" alt="Хичээлийн зураг" style="box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 12px;">
         <div class="course-head">
           <div class="c-name">
-            <h2>App inventor хичээлийн тухай</h2>
-
+            <h2 style="color: #2A2A2A; font-weight: 700;">App Inventor Хичээл</h2>
             <div class="star">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star" style="font-size: 1.2rem;"></i>
+              <i class="fa-solid fa-star" style="font-size: 1.2rem;"></i>
+              <i class="fa-solid fa-star" style="font-size: 1.2rem;"></i>
+              <i class="fa-solid fa-star" style="font-size: 1.2rem;"></i>
+              <i class="fa-solid fa-star" style="font-size: 1.2rem;"></i>
             </div>
-
-            <p>Тайлбар хэсэг</p>
+            <p style="color: #666; line-height: 1.6;">Мобайл апп хөгжүүлэх үндсэн чадваруудыг эзэмшиж, Android апп бүтээх практик туршлага олгох хичээлийн цуврал</p>
           </div>
-          <span>млй мой</span>
+          <span style="background: linear-gradient(135deg, #6B46C1, #553C9A); color: white; padding: 8px 16px; border-radius: 5px;">Үнэгүй</span>
         </div>
-
-        <h3>Багш</h3>
-        <div class="tutor">
-          <img src="img/c4.jpg" alt="" />
-          <div class="tutor-det">
-            <h5>Батмөнх</h5>
-            <p>IoT </p>
+        <div class="tutor" style="margin: 2rem 0; padding: 1.5rem; background: #F8F9FA; border-radius: 8px;">
+          <img src="img/c4.jpg" alt="Багшийн зураг" style="width: 80px; height: 80px; border: 2px solid #6B46C1;">
+          <div class="tutor-det" style="margin-left: 1.5rem;">
+            <h5 style="margin: 0; color: #2A2A2A;">Батмөнх багш</h5>
+            <p style="margin: 0.5rem 0 0 0; color: #666;">Мобайл хөгжүүлэлтийн мэргэжилтэн</p>
           </div>
         </div>
-
-        <hr />
-
-        <h3>Хичээлийн сэтгэгдэлүүд</h3>
-
-        <p>Гайхалтай хичээл</p>
-        <br />
-        <p>Гайхалтай хичээл</p>
-        <br />
-        <p>Гайхалтай хичээл</p>
-
-        <hr />
-
-        <h3>Та юу сурах вэ</h3>
-
-        <div class="learn">
-          <p><i class="far fa-check-circle"></i> Эдгээр зүйлсийг сурна.</p>
-          <p><i class="far fa-check-circle"></i> Эдгээр зүйлсийг сурна.</p>
-          <p><i class="far fa-check-circle"></i> Эдгээр зүйлсийг сурна.</p>
-          <p><i class="far fa-check-circle"></i> Эдгээр зүйлсийг сурна.</p>
-          <p><i class="far fa-check-circle"></i> Эдгээр зүйлсийг сурна.</p>
-          <p><i class="far fa-check-circle"></i> Эдгээр зүйлсийг сурна.</p>
-
-          <div class="enroll-btn">
-            <a href="#" class="blue">Хичээл үзэх</a>
+        <div class="learn" style="background: #FFFFFF; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+          <h3 style="color: #2A2A2A; border-bottom: 2px solid #6B46C1; padding-bottom: 0.5rem;">Таны сурах зүйлс</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li style="padding: 0.8rem 0; border-bottom: 1px solid #EEE;">
+              <i class="far fa-check-circle" style="color: #6B46C1; margin-right: 1rem;"></i>
+              App Inventor-ийн үндсэн интерфейс
+            </li>
+          </ul>
+          <div class="enroll-btn" style="text-align: center; margin-top: 2rem;">
+            <a href="https://youtube.com/playlist?list=PL7sbjUYIdF3Ux_UrRiBaC73OrJLvLza4u&si=dqjDz3U_b_TgTaFF" target="_blank" 
+               style="background: linear-gradient(135deg, #6B46C1, #553C9A); padding: 1rem 2.5rem; 
+                      color: white; text-decoration: none; border-radius: 25px; 
+                      transition: transform 0.3s ease; display: inline-block;
+                      box-shadow: 0 4px 6px rgba(106, 70, 193, 0.3);"
+               onmouseover="this.style.transform='translateY(-2px)'" 
+               onmouseout="this.style.transform='none'">
+              ХИЧЭЭЛ ҮЗЭХ
+            </a>
           </div>
         </div>
       </div>
-
-      <div class="enroll">
-        <h3>Энэ бүтээлээр:</h3>
-
-        <p><i class="fa-solid fa-video"></i> Хичээлийн цаг дээрх</p>
-        <p><i class="fa-solid fa-newspaper"></i> бабаөаө</p>
-        <p><i class="fa-solid fa-download"></i> өброхөобхөб</p>
-        <p><i class="fa-solid fa-key"></i> абөабө</p>
-
-        <div class="enroll-btn">
-          <a href="#" class="blue">Хичээл үзэх</a>
+      <div class="enroll" style="background: #FFFFFF; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <h3 style="color: #2A2A2A; margin-top: 0;">Хичээлийн мэдээлэл</h3>
+        <div style="margin: 1.5rem 0;">
+          <div style="display: flex; align-items: center; margin: 1rem 0;">
+            <i class="fa-solid fa-video" style="color: #6B46C1; font-size: 1.2rem; width: 30px;"></i>
+            <span>2+ цагийн видео материал</span>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <a href="https://youtube.com/playlist?list=PLlBVuTSjOrclb0iCMSRpS_H1lSrlSVeEm&si=YXybEcqhUVjcYoHy" target="_blank" 
+             class="enroll-button" 
+             style="/* Same button styles as above */">
+            ХИЧЭЭЛЭЭ ЭХЛҮҮЛЭХ
+          </a>
         </div>
       </div>
     </section>
-    <!-- Course body section starts -->
-
-   
+    <style>
+      .enroll-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(106, 70, 193, 0.4);
+      }
+      
+      @media (max-width: 768px) {
+        #course-inner {
+          flex-direction: column;
+          padding: 2rem;
+        }
+        
+        .enroll {
+          margin-top: 2rem;
+          width: 100%;
+        }
+      }
+    </style>   
     <script>
-      // Show menu links on burger click
       $("#menu-btn").click(function () {
         $("nav .navigation ul").addClass("active");
       });
 
-      // Hide navbar on click function
       $("#menu-close").click(function () {
         $("nav .navigation ul").removeClass("active");
       });
