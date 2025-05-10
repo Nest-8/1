@@ -1,227 +1,619 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>DemoDay Project Website Template</title>
-	<link rel="stylesheet" href="style.css">
-	</head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>DemoDay Project - NEST Education</title>
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+ <style>
+ /* ==== BASE RESET ==== */
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Poppins', sans-serif; line-height: 1.6; background: #111; color: #fff; }
+ a { text-decoration: none; }
+
+ /* ==== NAVIGATION ==== */
+nav {
+ position: fixed;
+ top: 0; /* Ensures it's pinned to the top */
+ left: 0;
+ width: 100%;
+ background: rgba(0, 0, 0, 0.8);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 1rem 8vw;
+ box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+ z-index: 10;
+}
+ nav .logo { width: 60px; }
+ nav ul { display: flex; gap: 2rem; list-style: none; }
+ nav ul li a {
+ color: #ddd;
+ font-weight: 600;
+ transition: color 0.3s;
+ font-size: 1rem;
+ }
+ nav ul li a:hover, nav ul li a.active { color: #0eaffa; }
+
+ /* ==== HERO ==== */
+ #home {
+ background: url("https://images.unsplash.com/photo-1556742044-3c52d6e88c62") center/cover no-repeat;
+ height: 100vh;
+ color: white;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ padding: 2rem;
+ position: relative;
+ }
+ #home::after {
+ content: '';
+ position: absolute;
+ top: 0; left: 0; right: 0; bottom: 0;
+ background: rgba(0, 0, 0, 0.6);
+ z-index: -1;
+ }
+ #home h2 { font-size: 3rem; margin-bottom: 1rem; animation: fadeInUp 1s ease forwards; }
+ #home p { max-width: 700px; animation: fadeInUp 1.3s ease forwards; }
+ #home .btn {
+ margin-top: 2rem;
+ display: flex;
+ gap: 1.5rem;
+ }
+ .btn a {
+ padding: 0.8rem 2.5rem;
+ font-weight: bold;
+ border-radius: 30px;
+ color: #fff;
+ background: #5f38fd;
+ transition: all 0.3s ease;
+ text-transform: uppercase;
+ }
+ .btn a.yellow { background: #fdc93b; }
+ .btn a:hover {
+ transform: translateY(-3px);
+ box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+ }
+
+ /* ==== SECTION COMMON ==== */
+ section {
+ padding: 5rem 8vw;
+ background-color: #222;
+ border-radius: 8px;
+ margin-top: 6rem;
+ }
+ section h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #27c0ea; }
+ section p { max-width: 750px; margin: 0 auto; color: #bbb; font-size: 1rem; }
+
+ /* ==== PROJECTS ==== */
+ .project-box {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 2rem;
+ margin-top: 3rem;
+ }
+ .projects {
+ background: #333;
+ border-radius: 12px;
+ overflow: hidden;
+ box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+ transition: transform 0.3s ease;
+ position: relative;
+ }
+ .projects:hover { transform: translateY(-10px); }
+ .projects img { width: 100%; height: 200px; object-fit: cover; }
+ .details {
+ padding: 1.5rem;
+ color: #fff;
+ }
+ .details span { font-size: 0.9rem; color: #27c0ea; font-weight: 600; text-transform: uppercase; }
+ .details h6 { margin: 0.5rem 0; font-size: 1.2rem; font-weight: 600; }
+ .star i { color: #27c0ea; }
+ .cost {
+ position: absolute;
+ right: 20px;
+ top: 150px;
+ background: #27c0ea;
+ color: #000;
+ padding: 12px;
+ border-radius: 50%;
+ font-weight: bold;
+ }
+
+ /* ==== REGISTRATION ==== */
+ #registration {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 3rem;
+ justify-content: space-between;
+ background: #3a3a3a;
+ border-radius: 12px;
+ padding: 4rem 3rem;
+ }
+ .reminder { flex: 1; }
+ .reminder h1 { font-size: 2.3rem; color: #27c0ea; }
+ .reminder p { color: #bbb; font-size: 1.1rem; margin-top: 1rem; }
+ .time {
+ display: flex;
+ margin-top: 2rem;
+ gap: 2rem;
+ }
+ .time .date {
+ flex: 1;
+ background: rgba(255,255,255,0.1);
+ text-align: center;
+ padding: 1rem;
+ border-radius: 8px;
+ }
+ .time .date span { font-size: 2.5rem; font-weight: bold; color: #27c0ea; display: block; }
+
+ .form { background: #222; color: white; border-radius: 12px; padding: 3rem; flex: 1; }
+ .form input {
+ width: 100%;
+ margin: 0.8rem 0;
+ padding: 1rem;
+ border-radius: 8px;
+ border: 1px solid #555;
+ background: #444;
+ color: #fff;
+ }
+ .form button {
+ background: #27c0ea;
+ color: black;
+ font-weight: bold;
+ padding: 1rem 2.5rem;
+ border: none;
+ border-radius: 8px;
+ margin-top: 2rem;
+ cursor: pointer;
+ transition: 0.3s ease;
+ }
+ .form button:hover {
+ background: #fff;
+ color: #5f38fd;
+ box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+ }
+
+ /* ==== TEAM ==== */
+ .expert-box {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 2rem;
+ margin-top: 2rem;
+ }
+ .profile {
+ background: #444;
+ border-radius: 10px;
+ padding: 2rem;
+ text-align: center;
+ transition: all 0.3s ease;
+ }
+ .profile:hover {
+ transform: translateY(-8px);
+ box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+ }
+ .profile h3 { color: #27c0ea; margin: 1rem 0; }
+ .profile p { color: #bbb; margin: 0.5rem 0; font-size: 1.1rem; }
+ .pro-links i {
+ margin: 0 7px;
+ color: #27c0ea;
+ font-size: 1.5rem;
+ cursor: pointer;
+ transition: color 0.3s ease;
+ }
+ .pro-links i:hover { color: #fff; }
+
+ /* ==== ANIMATIONS ==== */
+ @keyframes fadeInUp {
+ 0% { opacity: 0; transform: translateY(40px); }
+ 100% { opacity: 1; transform: translateY(0); }
+ }
+
+ .fade-in { opacity: 0; transition: all 1s ease; }
+ .fade-in.appear { opacity: 1; transform: translateY(0); }
+
+ /* ==== MEDIA ==== */
+ @media (max-width: 768px) {
+ nav ul { display: none; }
+ .project-box, .expert-box { grid-template-columns: 1fr; }
+ #registration { flex-direction: column; }
+ .form { padding: 2rem; }
+ }
+ </style>
+</head>
 <body>
-	<nav>
-		<img src="img/favicon.ico" class="logo" alt="">
-		<p>
-			NEST Education IT school	
-		</p>
+ <nav>
+ <img src="img/favicon.ico" class="logo" alt="Logo">
+ <p>NEST Education</p>
+ <ul>
+ <li><a href="#" class="active">Home</a></li>
+ <li><a href="#">Projects</a></li>
+ <li><a href="#">Courses</a></li>
+ <li><a href="#">Contact</a></li>
+ </ul>
+ </nav>
 
-		<div class="navigation">
-			<ul>
-				<i id="menu-close" class="fas fa-times"></i>
-				<li><a href="index.html" class="active">Нүүр Хуудас</a></li>
-				<li><a href="buteel.html">Бүтээлийн танилцуулга</a></li>
-				<li><a href="course-inner.html">Хичээлийн тухай</a></li>
-				<li><a href="contact.html">Холбоо барих</a></li>
-			</ul>
+ <section id="home" class="fade-in">
+ <h2>Point system</h2>
+ <p>Хүн болгонд нээлттэй онооны систэм.</p>
+ <div class="btn">
+ <a href="https://arcadepoints.nanasoft.mn" class="blue">Sign Up</a>
+ <a href="buteel.html" class="yellow">Learn More</a>
+ </div>
+ </section>
 
-			<img src="img/menu.png" id="menu-btn" alt="">
-		</div>
-	</nav>
-	<section id="home">
-		<h2>
-			Онооны Удирдлагын Систем
-		</h2>
-		<p>
-			Орчин үеийн технологийн тусламжтайгаар бид backend програмчлалыг ашиглан онооны системийг нэгтгэсэн.
-		</p>
-		<div class="btn">
-			<a href="#" class="blue">Цааш</a>
-			<a href="#" class="yellow">Төсөл хэрэгжүүлэлт</a>
-		</div>
-	</section>
-	<section id="project">
-		<h1>Төсөлд ашигласан технологууд</h1>
-		<p>Төсөлд ашигласан технологуудын танилцуулга болон хэрхэн ашигласан талаарх тэмдэглэл</p>
+ <section id="project" class="fade-in">
+ <h1>Featured Projects</h1>
+ <div class="project-box">
+ <div class="projects">
+ <img src="https://source.unsplash.com/600x400/?technology" alt="">
+ <div class="details">
+ <span>Online Education</span>
+ <h6>Our hardwork</h6>
+ <div class="star"><i class="fas fa-star"></i> <i class="fas fa-star"></i></div>
+ </div>
+ <div class="cost">$0</div>
+ </div>
+ <!-- Repeat project cards -->
+ </div>
 
-		<div class="project-box">
-			<div class="projects">
-				<img src="img/ar.png" alt="">
-				<div class="details">
-					<span>Arduino IDE</span>
-					<h6>ESP32, RFID, ба Relay Module</h6>
+ <div class="project-box">
+ <div class="projects">
+ <img src="https://source.unsplash.com/600x400/?technology" alt="">
+ <div class="details">
+ <span>Online Education</span>
+ <h6>Hosting</h6>
+ <div class="star"><i class="fas fa-star"></i> <i class="fas fa-star"></i></div>
+ </div>
+ <div class="cost">$30</div>
+ </div>
+ <!-- Repeat project cards -->
+ </div>
 
-					<div class="star">
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
+ <div class="project-box">
+ <div class="projects">
+ <img src="https://source.unsplash.com/600x400/?technology" alt="">
+ <div class="details">
+ <span>Online Education</span>
+ <h6>Domain name system</h6>
+ <div class="star"><i class="fas fa-star"></i> <i class="fas fa-star"></i></div>
+ </div>
+ <div class="cost">$10</div>
+ </div>
+ <!-- Repeat project cards -->
+ </div>
 
-						<span>(50)</span>
-					</div>
-				</div>
-				<div class="cost">$14.99</div>
-			</div>
+ <div class="project-box">
+ <div class="projects">
+ <img src="https://source.unsplash.com/600x400/?technology" alt="">
+ <div class="details">
+ <span>Online Point system</span>
+ <h6>Electronic IoT</h6>
+ <div class="star"><i class="fas fa-star"></i> <i class="fas fa-star"></i></div>
+ </div>
+ <div class="cost">$10</div>
+ </div>
+ <!-- Repeat project cards -->
+ </div>
+ </section>
 
-			<div class="projects">
-				<img src="https://images.unsplash.com/photo-1635775017492-1eb935a082a4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-				<div class="details">
-					<span>C Programming</span>
-					<h6>Си програмчлалын хэл</h6>
+ <section id="registration" class="fade-in">
+ <div class="reminder">
+ <h1>Register Now!</h1>
+ <p>Don't miss the chance to enroll in our latest programs at discounted prices.</p>
+ <div class="time">
+ <div class="date"><span>0</span>Days</div>
+ <div class="date"><span>0</span>Hours</div>
+ <div class="date"><span>0</span>Minutes</div>
+ </div>
+ </div>
+ <div class="form">
+ <h3>Register Now</h3>
+ <input type="text" placeholder="Name">
+ <input type="email" placeholder="Email">
+ <input type="tel" placeholder="Phone">
+ <button>Submit</button>
+ </div>
+ </section>
 
-					<div class="star">
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
+ <section id="experts" class="fade-in">
+ <h1>Our Team</h1>
+ <div class="expert-box">
+ <div class="profile">
+ <h3>Tugs-Orgil</h3>
+ <p>Web developer</p>
+ <div class="pro-links">
+ <i class="fab fa-facebook"></i>
+ <i class="fab fa-twitter"></i>
+ <i class="fab fa-github"></i>
+ </div>
+ </div>
+ 
+ <div class="profile">
+    <h3>Uugan-Erdene</h3>
+    <p>Frontend Developer, Bug hunter</p>
+    <div class="pro-links">
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-twitter"></i>
+    <i class="fab fa-github"></i>
+    </div>
+    </div>
+ 
+    <div class="profile">
+        <h3>Setsenbilguun</h3>
+        <p>Designer</p>
+        <div class="pro-links">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-github"></i>
+        </div>
+        </div>
+ 
+        <div class="profile">
+            <h3>Tengis</h3>
+            <p>IoT engineer</p>
+            <div class="pro-links">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-github"></i>
+            </div>
+            </div>
+            
 
-						<span>(1)</span>
-					</div>
-				</div>
-				<div class="cost">$0</div>
-			</div>
+ <style>
+ /* ==== BASE RESET ==== */
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Poppins', sans-serif; line-height: 1.6; background: #111; color: #fff; }
+ a { text-decoration: none; }
 
-			<div class="projects">
-				<img src="https://images.unsplash.com/photo-1586281380426-f644f2dc6ada?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-				<div class="details">
-					<span>CPanel, iTools</span>
-					<h6>DNS буюу домайн ашигласан</h6>
+ /* ==== NAVIGATION ==== */
+nav {
+ position: fixed;
+ top: 0; /* Ensures it's pinned to the top */
+ left: 0;
+ width: 100%;
+ background: rgba(0, 0, 0, 0.8);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 1rem 8vw;
+ box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+ z-index: 10;
+}
+ nav .logo { width: 60px; }
+ nav ul { display: flex; gap: 2rem; list-style: none; }
+ nav ul li a {
+ color: #ddd;
+ font-weight: 600;
+ transition: color 0.3s;
+ font-size: 1rem;
+ }
+ nav ul li a:hover, nav ul li a.active { color: #0eaffa; }
 
-					<div class="star">
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
+ /* ==== HERO ==== */
+ #home {
+ background: url("https://images.unsplash.com/photo-1556742044-3c52d6e88c62") center/cover no-repeat;
+ height: 100vh;
+ color: white;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ padding: 2rem;
+ position: relative;
+ }
+ #home::after {
+ content: '';
+ position: absolute;
+ top: 0; left: 0; right: 0; bottom: 0;
+ background: rgba(0, 0, 0, 0.6);
+ z-index: -1;
+ }
+ #home h2 { font-size: 3rem; margin-bottom: 1rem; animation: fadeInUp 1s ease forwards; }
+ #home p { max-width: 700px; animation: fadeInUp 1.3s ease forwards; }
+ #home .btn {
+ margin-top: 2rem;
+ display: flex;
+ gap: 1.5rem;
+ }
+ .btn a {
+ padding: 0.8rem 2.5rem;
+ font-weight: bold;
+ border-radius: 30px;
+ color: #fff;
+ background: #5f38fd;
+ transition: all 0.3s ease;
+ text-transform: uppercase;
+ }
+ .btn a.yellow { background: #fdc93b; }
+ .btn a:hover {
+ transform: translateY(-3px);
+ box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+ }
 
-						<span>(2)</span>
-					</div>
-				</div>
-				<div class="cost">$44.99</div>
-			</div>
+ /* ==== SECTION COMMON ==== */
+ section {
+ padding: 5rem 8vw;
+ background-color: #222;
+ border-radius: 8px;
+ margin-top: 6rem;
+ }
+ section h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #27c0ea; }
+ section p { max-width: 750px; margin: 0 auto; color: #bbb; font-size: 1rem; }
 
-			<div class="projects">
-				<img src="https://images.unsplash.com/photo-1529612700005-e35377bf1415?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-				<div class="details">
-					<span>Онлайн эх сурвалж</span>
-					<h6>Google, ChatGPT, ном, гэх мэт эх сурвалж ашигласан</h6>
+ /* ==== PROJECTS ==== */
+ .project-box {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 2rem;
+ margin-top: 3rem;
+ }
+ .projects {
+ background: #333;
+ border-radius: 12px;
+ overflow: hidden;
+ box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+ transition: transform 0.3s ease;
+ position: relative;
+ }
+ .projects:hover { transform: translateY(-10px); }
+ .projects img { width: 100%; height: 200px; object-fit: cover; }
+ .details {
+ padding: 1.5rem;
+ color: #fff;
+ }
+ .details span { font-size: 0.9rem; color: #27c0ea; font-weight: 600; text-transform: uppercase; }
+ .details h6 { margin: 0.5rem 0; font-size: 1.2rem; font-weight: 600; }
+ .star i { color: #27c0ea; }
+ .cost {
+ position: absolute;
+ right: 20px;
+ top: 150px;
+ background: #27c0ea;
+ color: #000;
+ padding: 12px;
+ border-radius: 50%;
+ font-weight: bold;
+ }
 
-					<div class="star">
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
+ /* ==== REGISTRATION ==== */
+ #registration {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 3rem;
+ justify-content: space-between;
+ background: #3a3a3a;
+ border-radius: 12px;
+ padding: 4rem 3rem;
+ }
+ .reminder { flex: 1; }
+ .reminder h1 { font-size: 2.3rem; color: #27c0ea; }
+ .reminder p { color: #bbb; font-size: 1.1rem; margin-top: 1rem; }
+ .time {
+ display: flex;
+ margin-top: 2rem;
+ gap: 2rem;
+ }
+ .time .date {
+ flex: 1;
+ background: rgba(255,255,255,0.1);
+ text-align: center;
+ padding: 1rem;
+ border-radius: 8px;
+ }
+ .time .date span { font-size: 2.5rem; font-weight: bold; color: #27c0ea; display: block; }
 
-						<span>(∞)</span>
-					</div>
-				</div>
-				<div class="cost">$0</div>
-			</div>
-		</div>
-	</section>
-	<section id="registration">
-		<div class="reminder">
-		  <p>Дараагийн төслийг хамтдаа бүтээцгээе</p>
-		  <h1>Бидэнтэй нэгдээрэй</h1>
-		  <div class="time">
-			<div class="date"><span id="days">--</span><br>Days</div>
-			<div class="date"><span id="hours">--</span><br>Hours</div>
-			<div class="date"><span id="minutes">--</span><br>Minutes</div>
-			<div class="date"><span id="seconds">--</span><br>Seconds</div>
-		  </div>
-		</div>
-		<div class="form">
-		  <h3>Яг одоо бүртгүүлээрэй!</h3>
-		  <form action="https://api.web3forms.com/submit" method="POST">
-			<input type="hidden" name="access_key" value="cbf8af70-9740-4e7d-ab2f-2edc0c26de00" />
-			<input type="hidden" name="redirect" value="thank-you.html" />
-			<input type="text" name="name" placeholder="Name" required />
-			<input type="email" name="email" placeholder="Email ID" required />
-			<input type="tel" name="phone" placeholder="Contact Number" required />
-	  
-			<div class="btn">
-			  <button type="submit" class="yellow">Бүртгүүлэх</button>
-			</div>
-		  </form>
-		</div>
-	</section>	
-	<section id="experts">
-		<h1>Багийн гишүүд</h1>
-		<p>Манай багийн бүрэлдэхүүн</p>
-		<div class="expert-box">
-			<div class="profile">
-				<img src="placeholder" alt="">
-				<h6>Төгс-Оргил</h6>
-				<p>Web Development, Arduino Development, Document Expert, Video Creation</p>
-				<div class="pro-links">
-					<i class="fab fa-facebook"></i>
-					<i class="fab fa-instagram"></i>
-					<i class="fab fa-linkedin-in"></i>
-				</div>
-			</div>
+ .form { background: #222; color: white; border-radius: 12px; padding: 3rem; flex: 1; }
+ .form input {
+ width: 100%;
+ margin: 0.8rem 0;
+ padding: 1rem;
+ border-radius: 8px;
+ border: 1px solid #555;
+ background: #444;
+ color: #fff;
+ }
+ .form button {
+ background: #27c0ea;
+ color: black;
+ font-weight: bold;
+ padding: 1rem 2.5rem;
+ border: none;
+ border-radius: 8px;
+ margin-top: 2rem;
+ cursor: pointer;
+ transition: 0.3s ease;
+ }
+ .form button:hover {
+ background: #fff;
+ color: #5f38fd;
+ box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+ }
 
-			<div class="profile">
-				<img src="placeholder" alt="">
-				<h6>Uugan-Erdene</h6>
-				<p>Web Site Designer</p>
-				<div class="pro-links">
-					<i class="fab fa-facebook"></i>
-					<i class="fab fa-instagram"></i>
-					<i class="fab fa-linkedin-in"></i>
-				</div>
-			</div>
+ /* ==== TEAM ==== */
+ .expert-box {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 2rem;
+ margin-top: 2rem;
+ }
+ .profile {
+ background: #444;
+ border-radius: 10px;
+ padding: 2rem;
+ text-align: center;
+ transition: all 0.3s ease;
+ }
+ .profile:hover {
+ transform: translateY(-8px);
+ box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+ }
+ .profile h3 { color: #27c0ea; margin: 1rem 0; }
+ .profile p { color: #bbb; margin: 0.5rem 0; font-size: 1.1rem; }
+ .pro-links i {
+ margin: 0 7px;
+ color: #27c0ea;
+ font-size: 1.5rem;
+ cursor: pointer;
+ transition: color 0.3s ease;
+ }
+ .pro-links i:hover { color: #fff; }
 
-			<div class="profile">
-				<img src="placeholder" alt="">
-				<h6>Tengis</h6>
-				<p>Arduino Expert</p>
-				<div class="pro-links">
-					<i class="fab fa-facebook"></i>
-					<i class="fab fa-instagram"></i>
-					<i class="fab fa-linkedin-in"></i>
-				</div>
-			</div>
+ /* ==== ANIMATIONS ==== */
+ @keyframes fadeInUp {
+ 0% { opacity: 0; transform: translateY(40px); }
+ 100% { opacity: 1; transform: translateY(0); }
+ }
 
-			<div class="profile">
-				<img src="placeholder" alt="">
-				<h6>Setsnbilguun</h6>
-				<p>Video Creation</p>
-				<div class="pro-links">
-					<i class="fab fa-facebook"></i>
-					<i class="fab fa-instagram"></i>
-					<i class="fab fa-linkedin-in"></i>
-				</div>
-			</div>
-		</div>
-	</section>
-	<script>
-		const target = new Date('2025-05-10T00:00:00+08:00').getTime();
-		function updateCountdown() {
-		const now = Date.now();
-		const diff = target - now;
+ .fade-in { opacity: 0; transition: all 1s ease; }
+ .fade-in.appear { opacity: 1; transform: translateY(0); }
 
-		if (diff <= 0) {
-			document.querySelector('.time').innerHTML = '<h2>ДэмоДау эхэллээ!</h2>';
-			clearInterval(timerInterval);
-			return;
-		}
-		const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
-		const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-		const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-		document.getElementById('days').innerText    = String(days).padStart(2, '0');
-		document.getElementById('hours').innerText   = String(hours).padStart(2, '0');
-		document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-		document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
-		}
-		updateCountdown();
-		const timerInterval = setInterval(updateCountdown, 1000);
-		$('#menu-btn').click(function(){
-			$('nav .navigation ul').addClass('active')
-		});
-		$('#menu-close').click(function(){
-			$('nav .navigation ul').removeClass('active')
-		});
-	</script>
+ /* ==== MEDIA ==== */
+ @media (max-width: 768px) {
+ nav ul { display: none; }
+ .project-box, .expert-box { grid-template-columns: 1fr; }
+ #registration { flex-direction: column; }
+ .form { padding: 2rem; }
+ }
+ </style>
+
+ <script>
+ // Scroll reveal effect
+ const faders = document.querySelectorAll('.fade-in');
+ const appearOptions = { threshold: 0.2 };
+ const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+ entries.forEach(entry => {
+ if (!entry.isIntersecting) return;
+ entry.target.classList.add('appear');
+ observer.unobserve(entry.target);
+ });
+ }, appearOptions);
+
+ faders.forEach(fader => appearOnScroll.observe(fader));
+ </script>
 </body>
 </html>
+
+ <script>
+ // Scroll reveal effect
+ const faders = document.querySelectorAll('.fade-in');
+ const appearOptions = { threshold: 0.2 };
+ const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+ entries.forEach(entry => {
+ if (!entry.isIntersecting) return;
+ entry.target.classList.add('appear');
+ observer.unobserve(entry.target);
+ });
+ }, appearOptions);
+
+ faders.forEach(fader => appearOnScroll.observe(fader));
+ </script>
+</body>
+</html>
+
